@@ -1,0 +1,152 @@
+id,WMA,trt,sample_date,common_name,status,habitat,genus,species,count
+1,Melbye WMA,Experimental,10-Jun-2016,Eastern Screech-Owl,,deciduous forest,Megascops,asio,3
+1,Melbye WMA,Experimental,10-Jun-2016,Bobolink,sgcn,open upland,Dolichonyx,oryzivorus,8
+1,Melbye WMA,Experimental,10-Jun-2016,Eastern Whip-poor-will,sgcn,mixed forest,Antrostomus,vociferus,12
+1,Melbye WMA,Experimental,10-Jun-2016,Double-crested Cormorant,,wetland,Phalacrocorax,auritus,0
+1,Melbye WMA,Experimental,10-Jun-2016,Blackburnian Warbler,,coniferous forest,Setophaga,fusca,14
+1,Melbye WMA,Experimental,10-Jun-2016,Northern Rough-winged Swallow,sgcn,fragmented,Stelgidopteryx,serripennis,6
+1,Melbye WMA,Experimental,10-Jun-2016,Least Bittern,sgcn,wetland,Ixobrychus,exilis,10
+1,Melbye WMA,Experimental,10-Jun-2016,Chipping Sparrow,,coniferous forest,Spizella,passerina,17
+1,Melbye WMA,Experimental,10-Jun-2016,Lark Bunting,,open upland,Calamospiza,melanocorys,7
+1,Melbye WMA,Experimental,10-Jun-2016,Ruddy Duck,,wetland,Oxyura,jamaicensis,8
+1,Melbye WMA,Experimental,10-Jun-2016,American Coot,,wetland,Fulica,americana,24
+2,Ogema Springs WMA,Experimental,2-Jun-2016,Red-necked Grebe,sgcn,wetland,Podiceps,grisegena,19
+2,Ogema Springs WMA,Experimental,2-Jun-2016,Tree Swallow,,fragmented,Tachycineta,bicolor,2
+2,Ogema Springs WMA,Experimental,2-Jun-2016,Rock Wren,,open upland,Salpinctes,obsoletus,5
+2,Ogema Springs WMA,Experimental,2-Jun-2016,Rock Pigeon,,fragmented,Columba,livia,7
+2,Ogema Springs WMA,Experimental,2-Jun-2016,Bell's Vireo,SPC,fragmented,Vireo,bellii,14
+2,Ogema Springs WMA,Experimental,2-Jun-2016,Canada Goose,,wetland,Branta,canadensis,11
+2,Ogema Springs WMA,Experimental,2-Jun-2016,Alder Flycatcher,,fragmented,Empidonax,alnorum,7
+2,Ogema Springs WMA,Experimental,2-Jun-2016,Swainson's Thrush,,coniferous forest,Catharus,ustulatus,15
+2,Ogema Springs WMA,Experimental,2-Jun-2016,Herring Gull,,wetland,Larus,argentatus,11
+2,Ogema Springs WMA,Experimental,2-Jun-2016,Sora,,wetland,Porzana,carolina,12
+2,Ogema Springs WMA,Experimental,2-Jun-2016,Yellow-crowned Night-Heron,,wetland,Nyctanassa,violacea,9
+2,Ogema Springs WMA,Experimental,2-Jun-2016,Boreal Chickadee,sgcn,coniferous forest,Poecile,hudsonicus,11
+2,Ogema Springs WMA,Experimental,2-Jun-2016,Wilson's Warbler,,coniferous forest,Cardellina,pusilla,21
+2,Ogema Springs WMA,Experimental,2-Jun-2016,Northern Mockingbird,,fragmented,Mimus,polyglottos,9
+2,Ogema Springs WMA,Experimental,2-Jun-2016,Pine Siskin,,coniferous forest,Spinus,pinus,25
+2,Ogema Springs WMA,Experimental,2-Jun-2016,Yellow-bellied Sapsucker,sgcn,mixed forest,Sphyrapicus,varius,8
+2,Ogema Springs WMA,Experimental,2-Jun-2016,Baird's Sparrow,END,open upland,Ammodramus,bairdii,2
+2,Ogema Springs WMA,Experimental,2-Jun-2016,American Bittern,sgcn,wetland,Botaurus,lentiginosus,15
+2,Ogema Springs WMA,Experimental,2-Jun-2016,Veery,sgcn,mixed forest,Catharus,fuscescens,19
+2,Ogema Springs WMA,Experimental,2-Jun-2016,Chipping Sparrow,,coniferous forest,Spizella,passerina,14
+2,Ogema Springs WMA,Experimental,2-Jun-2016,Bald Eagle,sgcn,wetland,Haliaeetus,leucocephalus,6
+2,Ogema Springs WMA,Experimental,2-Jun-2016,European Starling,,fragmented,Sturnus,vulgaris,3
+2,Ogema Springs WMA,Experimental,2-Jun-2016,Bank Swallow,,open upland,Riparia,riparia,10
+2,Ogema Springs WMA,Experimental,2-Jun-2016,Eastern Phoebe,,fragmented,Sayornis,phoebe,4
+2,Ogema Springs WMA,Experimental,2-Jun-2016,Eared Grebe,sgcn,wetland,Podiceps,nigricollis,17
+2,Ogema Springs WMA,Experimental,2-Jun-2016,Hooded Warbler,SPC,deciduous forest,Setophaga,citrina,5
+3,Pednor WMA,Control,10-Jun-2016,Spruce Grouse,sgcn,coniferous forest,Falcipennis,canadensis,9
+3,Pednor WMA,Control,10-Jun-2016,Prothonotary Warbler,sgcn,deciduous forest,Protonotaria,citrea,11
+3,Pednor WMA,Control,10-Jun-2016,Northern Flicker,,mixed forest,Colaptes,auratus,11
+3,Pednor WMA,Control,10-Jun-2016,Alder Flycatcher,,fragmented,Empidonax,alnorum,2
+3,Pednor WMA,Control,10-Jun-2016,Tufted Titmouse,,deciduous forest,Baeolophus,bicolor,10
+4,Pickerel WMA,Experimental,15-Jun-2016,Common Merganser,,wetland,Mergus,merganser,15
+4,Pickerel WMA,Experimental,15-Jun-2016,Yellow-crowned Night-Heron,,wetland,Nyctanassa,violacea,4
+4,Pickerel WMA,Experimental,15-Jun-2016,Northern Cardinal,,deciduous forest,Cardinalis,cardinalis,6
+4,Pickerel WMA,Experimental,15-Jun-2016,Golden-winged Warbler,sgcn,coniferous forest,Vermivora,chrysoptera,12
+4,Pickerel WMA,Experimental,15-Jun-2016,Ring-billed Gull,,wetland,Larus,delawarensis,22
+4,Pickerel WMA,Experimental,15-Jun-2016,Merlin,,coniferous forest,Falco,columbarius,12
+4,Pickerel WMA,Experimental,15-Jun-2016,Sedge Wren,sgcn,wetland,Cistothorus,platensis,8
+4,Pickerel WMA,Experimental,15-Jun-2016,Sora,,wetland,Porzana,carolina,12
+4,Pickerel WMA,Experimental,15-Jun-2016,Nashville Warbler,,coniferous forest,Oreothlypis,ruficapilla,8
+4,Pickerel WMA,Experimental,15-Jun-2016,Eastern Kingbird,,open upland,Tyrannus,tyrannus,10
+4,Pickerel WMA,Experimental,15-Jun-2016,Eastern Phoebe,,fragmented,Sayornis,phoebe,17
+4,Pickerel WMA,Experimental,15-Jun-2016,Least Bittern,sgcn,wetland,Ixobrychus,exilis,6
+4,Pickerel WMA,Experimental,15-Jun-2016,Black-and-white Warbler,,coniferous forest,Mniotilta,varia,10
+4,Pickerel WMA,Experimental,15-Jun-2016,Bald Eagle,sgcn,wetland,Haliaeetus,leucocephalus,18
+4,Pickerel WMA,Experimental,15-Jun-2016,Pine Siskin,,coniferous forest,Spinus,pinus,19
+4,Pickerel WMA,Experimental,15-Jun-2016,Eastern Whip-poor-will,sgcn,mixed forest,Antrostomus,vociferus,6
+4,Pickerel WMA,Experimental,15-Jun-2016,Gray Catbird,,fragmented,Dumetella,carolinensis,5
+4,Pickerel WMA,Experimental,15-Jun-2016,Acadian Flycatcher,SPC,deciduous forest,Empidonax,virescens,9
+4,Pickerel WMA,Experimental,15-Jun-2016,Forster's Tern,SPC,wetland,Sterna,forsteri,
+4,Pickerel WMA,Experimental,15-Jun-2016,Horned Grebe,END,wetland,Podiceps,auritus,7
+4,Pickerel WMA,Experimental,15-Jun-2016,Ovenbird,sgcn,deciduous forest,Seiurus,aurocapilla,6
+4,Pickerel WMA,Experimental,15-Jun-2016,Clark's Grebe,,wetland,Aechmophorus,clarkii,10
+4,Pickerel WMA,Experimental,15-Jun-2016,Magnolia Warbler,,coniferous forest,Setophaga,magnolia,6
+4,Pickerel WMA,Experimental,15-Jun-2016,Baird's Sparrow,END,open upland,Ammodramus,bairdii,2
+4,Pickerel WMA,Experimental,15-Jun-2016,Red-necked Grebe,sgcn,wetland,Podiceps,grisegena,11
+4,Pickerel WMA,Experimental,15-Jun-2016,American Wigeon,,wetland,Anas,americana,11
+4,Pickerel WMA,Experimental,15-Jun-2016,Bank Swallow,,open upland,Riparia,riparia,11
+4,Pickerel WMA,Experimental,15-Jun-2016,Green Heron,,wetland,Butorides,virescens,13
+4,Pickerel WMA,Experimental,15-Jun-2016,Marsh Wren,sgcn,wetland,Cistothorus,palustris,16
+4,Pickerel WMA,Experimental,15-Jun-2016,Franklin's Gull,SPC,wetland,Leucophaeus,pipixcan,12
+4,Pickerel WMA,Experimental,15-Jun-2016,Red-winged Blackbird,,fragmented,Agelaius,phoeniceus,4
+4,Pickerel WMA,Experimental,15-Jun-2016,Bobolink,sgcn,open upland,Dolichonyx,oryzivorus,9
+4,Pickerel WMA,Experimental,15-Jun-2016,American Three-toed Woodpecker,,coniferous forest,Picoides,dorsalis,7
+4,Pickerel WMA,Experimental,15-Jun-2016,Baltimore Oriole,,deciduous forest,Icterus,galbula,17
+4,Pickerel WMA,Experimental,15-Jun-2016,Ruby-throated Hummingbird,,deciduous forest,Archilochus,colubris,13
+4,Pickerel WMA,Experimental,15-Jun-2016,Eared Grebe,sgcn,wetland,Podiceps,nigricollis,14
+4,Pickerel WMA,Experimental,15-Jun-2016,Tree Swallow,,fragmented,Tachycineta,bicolor,15
+4,Pickerel WMA,Experimental,15-Jun-2016,Le Conte's Sparrow,sgcn,wetland,Ammodramus,leconteii,8
+4,Pickerel WMA,Experimental,15-Jun-2016,Swamp Sparrow,sgcn,wetland,Melospiza,georgiana,12
+4,Pickerel WMA,Experimental,15-Jun-2016,Orchard Oriole,,fragmented,Icterus,spurius,7
+4,Pickerel WMA,Experimental,15-Jun-2016,Indigo Bunting,,deciduous forest,Passerina,cyanea,4
+4,Pickerel WMA,Experimental,15-Jun-2016,Summer Tanager,,deciduous forest,Piranga,rubra,
+4,Pickerel WMA,Experimental,15-Jun-2016,Red-tailed Hawk,,fragmented,Buteo,jamaicensis,10
+4,Pickerel WMA,Experimental,15-Jun-2016,Chimney Swift,,fragmented,Chaetura,pelagica,13
+4,Pickerel WMA,Experimental,15-Jun-2016,Northern Shoveler,,wetland,Anas,clypeata,10
+4,Pickerel WMA,Experimental,15-Jun-2016,American Crow,,fragmented,Corvus,brachyrhynchos,3
+4,Pickerel WMA,Experimental,15-Jun-2016,Ruffed Grouse,,deciduous forest,Bonasa,umbellus,7
+5,Spring Creek WMA,Control,10-Jun-2016,Short-eared Owl,SPC,wetland,Asio,flammeus,9
+5,Spring Creek WMA,Control,10-Jun-2016,Vesper Sparrow,,open upland,Pooecetes,gramineus,1
+5,Spring Creek WMA,Control,10-Jun-2016,Brown-headed Cowbird,,fragmented,Molothrus,ater,0
+5,Spring Creek WMA,Control,10-Jun-2016,Swamp Sparrow,sgcn,wetland,Melospiza,georgiana,12
+5,Spring Creek WMA,Control,10-Jun-2016,Merlin,,coniferous forest,Falco,columbarius,4
+5,Spring Creek WMA,Control,10-Jun-2016,Black-crowned Night-Heron,sgcn,wetland,Nycticorax,nycticorax,3
+5,Spring Creek WMA,Control,10-Jun-2016,House Finch,,fragmented,Haemorhous,mexicanus,13
+5,Spring Creek WMA,Control,10-Jun-2016,Northern Bobwhite,,fragmented,Colinus,virginianus,24
+5,Spring Creek WMA,Control,10-Jun-2016,American Woodcock,sgcn,deciduous forest,Scolopax,minor,11
+5,Spring Creek WMA,Control,10-Jun-2016,Bufflehead,,wetland,Bucephala,albeola,14
+5,Spring Creek WMA,Control,10-Jun-2016,Warbling Vireo,,deciduous forest,Vireo,gilvus,10
+5,Spring Creek WMA,Control,10-Jun-2016,Redhead,,wetland,Aythya,americana,6
+5,Spring Creek WMA,Control,10-Jun-2016,Ruby-crowned Kinglet,,coniferous forest,Regulus,calendula,12
+5,Spring Creek WMA,Control,10-Jun-2016,Red Crossbill,,coniferous forest,Loxia,curvirostra,13
+5,Spring Creek WMA,Control,10-Jun-2016,Bank Swallow,,open upland,Riparia,riparia,4
+5,Spring Creek WMA,Control,10-Jun-2016,Belted Kingfisher,,wetland,Megaceryle,alcyon,15
+5,Spring Creek WMA,Control,10-Jun-2016,Common Grackle,,fragmented,Quiscalus,quiscula,9
+5,Spring Creek WMA,Control,10-Jun-2016,American Redstart,,deciduous forest,Setophaga,ruticilla,14
+5,Spring Creek WMA,Control,10-Jun-2016,Boreal Chickadee,sgcn,coniferous forest,Poecile,hudsonicus,9
+5,Spring Creek WMA,Control,10-Jun-2016,Gray Partridge,,open upland,Perdix,perdix,10
+5,Spring Creek WMA,Control,10-Jun-2016,Summer Tanager,,deciduous forest,Piranga,rubra,0
+5,Spring Creek WMA,Control,10-Jun-2016,Wilson's Snipe,,wetland,Gallinago,delicata,13
+5,Spring Creek WMA,Control,10-Jun-2016,Western Kingbird,,open upland,Tyrannus,verticalis,2
+5,Spring Creek WMA,Control,10-Jun-2016,Common Loon,sgcn,wetland,Gavia,immer,12
+5,Spring Creek WMA,Control,10-Jun-2016,Golden-winged Warbler,sgcn,coniferous forest,Vermivora,chrysoptera,10
+5,Spring Creek WMA,Control,10-Jun-2016,Bobolink,sgcn,open upland,Dolichonyx,oryzivorus,9
+5,Spring Creek WMA,Control,10-Jun-2016,Pied-billed Grebe,,wetland,Podilymbus,podiceps,9
+5,Spring Creek WMA,Control,10-Jun-2016,Ruddy Duck,,wetland,Oxyura,jamaicensis,18
+5,Spring Creek WMA,Control,10-Jun-2016,Common Merganser,,wetland,Mergus,merganser,25
+5,Spring Creek WMA,Control,10-Jun-2016,Ovenbird,sgcn,deciduous forest,Seiurus,aurocapilla,
+5,Spring Creek WMA,Control,10-Jun-2016,Savannah Sparrow,,open upland,Passerculus,sandwichensis,6
+5,Spring Creek WMA,Control,10-Jun-2016,Blue Grosbeak,,framented,Passerina,caerulea,8
+5,Spring Creek WMA,Control,10-Jun-2016,Magnolia Warbler,,coniferous forest,Setophaga,magnolia,10
+5,Spring Creek WMA,Control,10-Jun-2016,Eastern Meadowlark,,open upland,Sturnella,magna,12
+5,Spring Creek WMA,Control,10-Jun-2016,Tree Swallow,,fragmented,Tachycineta,bicolor,7
+5,Spring Creek WMA,Control,10-Jun-2016,Great Horned Owl,,fragmented,Bubo,virginianus,0
+5,Spring Creek WMA,Control,10-Jun-2016,Red-headed Woodpecker,sgcn,fragmented,Melanerpes,erythrocephalus,20
+5,Spring Creek WMA,Control,10-Jun-2016,Red-winged Blackbird,,fragmented,Agelaius,phoeniceus,10
+6,Shelly Island WMA,Control,2-Jun-2016,European Starling,,fragmented,Sturnus,vulgaris,16
+6,Shelly Island WMA,Control,2-Jun-2016,Grasshopper Sparrow,sgcn,open upland,Ammodramus,savannarum,
+6,Shelly Island WMA,Control,2-Jun-2016,Long-eared Owl,,mixed forest,Asio,otus,10
+6,Shelly Island WMA,Control,2-Jun-2016,Lark Bunting,,open upland,Calamospiza,melanocorys,7
+6,Shelly Island WMA,Control,2-Jun-2016,Northern Goshawk,SPC,coniferous forest,Accipiter,gentilis,5
+6,Shelly Island WMA,Control,2-Jun-2016,Sharp-shinned Hawk,,coniferous forest,Accipiter,striatus,11
+6,Shelly Island WMA,Control,2-Jun-2016,Eastern Screech-Owl,,deciduous forest,Megascops,asio,11
+6,Shelly Island WMA,Control,2-Jun-2016,Yellow-headed Blackbird,sgcn,wetland,Xanthocephalus,xanthocephalus,6
+6,Shelly Island WMA,Control,2-Jun-2016,Prothonotary Warbler,sgcn,deciduous forest,Protonotaria,citrea,5
+6,Shelly Island WMA,Control,2-Jun-2016,Savannah Sparrow,,open upland,Passerculus,sandwichensis,10
+6,Shelly Island WMA,Control,2-Jun-2016,Eastern Meadowlark,,open upland,Sturnella,magna,17
+6,Shelly Island WMA,Control,2-Jun-2016,Black-capped Chickadee,,fragmented,Poecile,atricapillus,8
+6,Shelly Island WMA,Control,2-Jun-2016,Redhead,,wetland,Aythya,americana,16
+6,Shelly Island WMA,Control,2-Jun-2016,Northern Bobwhite,,fragmented,Colinus,virginianus,8
+6,Shelly Island WMA,Control,2-Jun-2016,Western Wood-Pewee,,mixed forest,Contopus,sordidulus,9
+6,Shelly Island WMA,Control,2-Jun-2016,Black-throated Blue Warbler,sgcn,coniferous forest,Setophaga,caerulescens,7
+6,Shelly Island WMA,Control,2-Jun-2016,Ring-necked Duck,,wetland,Aythya,collaris,16
+6,Shelly Island WMA,Control,2-Jun-2016,Merlin,,coniferous forest,Falco,columbarius,12
+6,Shelly Island WMA,Control,2-Jun-2016,Forster's Tern,SPC,wetland,Sterna,forsteri,14
+6,Shelly Island WMA,Control,2-Jun-2016,Blue-headed Vireo,,coniferous forest,Vireo,solitarius,14
+6,Shelly Island WMA,Control,2-Jun-2016,Red Crossbill,,coniferous forest,Loxia,curvirostra,14
+6,Shelly Island WMA,Control,2-Jun-2016,Western Meadowlark,,open upland,Sturnella,neglecta,14
+6,Shelly Island WMA,Control,2-Jun-2016,Red-eyed Vireo,,mixed forest,Vireo,olivaceus,17
+6,Shelly Island WMA,Control,2-Jun-2016,Swamp Sparrow,sgcn,wetland,Melospiza,georgiana,9

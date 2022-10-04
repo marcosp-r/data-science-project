@@ -1,0 +1,111 @@
+---
+title: "uhuru-dataset-visualization.Rmd"
+author: "Marcos Padilla-Ruiz"
+date: "2022-10-04"
+output: pdf_document
+---
+
+
+### 1. Describing the data we are using
+
+
+add a picture of an acacia
+### 2. reading the data table into R
+
+
+```{r}
+getwd()
+acacia <- read.csv(file = "/Users/marcos/Desktop/BIO 197/Data_Science_Project/raw_data/ACACIA_DREPANOLOBIUM_SURVEY (1).txt", sep = "\t")
+```
+
+### 3. explore our data
+
+```{r}
+head(acacia) 
+tail(acacia)
+summary(acacia)
+colnames(acacia)
+nrow(acacia)
+```
+
+make sure that everything that  is a number is actually numeric
+use functon summary to do this and check that the type of data corresponds to this
+nanother wya is to use th type function
+
+```{r}
+typeof(acacia[, "HEIGHT"])
+
+acacia$HEIGHT
+
+```
+
+idenitifed a colummn thta has problmeatic data so wee need to fix it so were gonna read the data table and assign "NA" to "dead" value in the height column
+
+
+```{r}
+acacia <- read.csv(file = "/Users/marcos/Desktop/BIO 197/Data_Science_Project/raw_data/ACACIA_DREPANOLOBIUM_SURVEY (1).txt", 
+                   sep = "\t", na.strings = "dead")
+getwd()
+```
+
+
+
+
+```{r}
+acacia$HEIGHT
+```
+
+### 4. visualize our data
+
+for this we use ggplot package
+let install it first
+
+
+```{r}
+#install.packages("ggplot2")
+library(ggplot2)
+```
+
+
+now we are gonna creat oiuur first  plotting layer with ggplot function
+
+```{r}
+ggplot(data = acacia, mapping = aes(x = CIRC, y = HEIGHT)) + 
+  geom_point(size = 1, col= "magenta", alpha = 0.2) +
+  labs(x = "Circumference", y = "Height", title = "Data from Acacia Survey")
+```
+
+to rescale the plotting of the axis to log scale we use the function scale_y_log_10()
+
+```{r}
+ggplot(data = acacia, mapping = aes(x = CIRC, y =  HEIGHT)) +
+  geom_point(size = 1, col= "cyan4", alpha = 0.2) +
+  scale_x_log10() +
+  scale_y_log10() +
+  labs(x = "Circumference", y = "Height", title = "Data from Acacia Survey")
+```
+
+we have the informaiton pon experimental treatmenet in treatmnt column
+
+```{r}
+acacia$TREATMENT
+```
+
+lets add this information to our plot:
+
+```{r}
+ggplot(acacia, mapping = aes (x = CIRC, y = HEIGHT, color = TREATMENT)) +
+  geom_point(size = 2, alpha = 0.5) +
+  labs(x = "Circumference", y = "Height", title = "Data from Acacia Survey") +
+  scale_x_log10() +
+  scale_y_log10() 
+```
+
+### 4.2 visualize a statistical anlaysis of correlation 
+
+
+
+
+
+
+

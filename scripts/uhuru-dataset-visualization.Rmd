@@ -7,6 +7,11 @@ output: pdf_document
 
 
 ### 1. Describing the data we are using
+This data was gathered through the UHURU experiment which consisted of enclosures of various sizes to gauge the ecological impacts that may occur to Acacia trees in Kenya. Firstly there is the mega-herbivore fence which is designed to keep larger herbivores outside the enclosure such as giraffes and elephants. Then there is 
+https://esapubs.org/archive/ecol/E095/064/metadata.php 
+
+
+
 
 
 add a picture of an acacia
@@ -14,7 +19,6 @@ add a picture of an acacia
 
 
 ```{r}
-getwd()
 acacia <- read.csv(file = "/Users/marcos/Desktop/BIO 197/Data_Science_Project/raw_data/ACACIA_DREPANOLOBIUM_SURVEY (1).txt", sep = "\t")
 ```
 
@@ -29,8 +33,8 @@ nrow(acacia)
 ```
 
 make sure that everything that  is a number is actually numeric
-use functon summary to do this and check that the type of data corresponds to this
-nanother wya is to use th type function
+use function summary to do this and check that the type of data corresponds to this
+in another way is to use the type function
 
 ```{r}
 typeof(acacia[, "HEIGHT"])
@@ -72,7 +76,7 @@ now we are gonna creat oiuur first  plotting layer with ggplot function
 ```{r}
 ggplot(data = acacia, mapping = aes(x = CIRC, y = HEIGHT)) + 
   geom_point(size = 1, col= "magenta", alpha = 0.2) +
-  labs(x = "Circumference", y = "Height", title = "Data from Acacia Survey")
+  labs(x = "Circumference", y = "Height (m)", title = "Data from Acacia Survey")
 ```
 
 to rescale the plotting of the axis to log scale we use the function scale_y_log_10()
@@ -82,7 +86,7 @@ ggplot(data = acacia, mapping = aes(x = CIRC, y =  HEIGHT)) +
   geom_point(size = 1, col= "cyan4", alpha = 0.2) +
   scale_x_log10() +
   scale_y_log10() +
-  labs(x = "Circumference", y = "Height", title = "Data from Acacia Survey")
+  labs(x = "Circumference", y = "Height (m)", title = "Data from Acacia Survey")
 ```
 
 we have the informaiton pon experimental treatmenet in treatmnt column
@@ -96,10 +100,94 @@ lets add this information to our plot:
 ```{r}
 ggplot(acacia, mapping = aes (x = CIRC, y = HEIGHT, color = TREATMENT)) +
   geom_point(size = 2, alpha = 0.5) +
-  labs(x = "Circumference", y = "Height", title = "Data from Acacia Survey") +
+  labs(x = "Circumference", y = "Height (m)", title = "Data from Acacia Survey") +
   scale_x_log10() +
   scale_y_log10() 
 ```
+
+a scatter plot function can be created using function geom point
+
+```{r}
+colors()
+```
+
+
+
+```{r}
+ggplot(data = acacia, mapping = aes(x = CIRC, y =  HEIGHT)) +
+  geom_point(size = 1, col= "cyan4", alpha = 0.8, shape = 11) +
+  labs(x = "Circumference", y = "Height (m)", title = "Data from Acacia Survey")
+```
+
+
+#subplots or facets
+
+function to create subplots is called facet_wrap()
+
+```{r}
+ggplot(data = acacia, mapping = aes(x = CIRC, y =  HEIGHT, color = TREATMENT)) +
+  geom_point() +
+  facet_wrap(~TREATMENT)
+```
+
+The plot above indicates that acacia trees within the megaherbivore fence enclosure were typically smaller both in height and in circumference in compariosn to the acacua trees within the mesoherbivore fence enclosure.
+
+When comparing the open and total we can see that in an open enclosure there are very few trees whereas in an entirelt closed off encolsure contained much more trees.
+
+
+
+how to test these hypotheses
+
+## model fitting functions
+
+the geom_smooth() function allows us to fit linear models to a set of points
+
+
+```{r}
+ggplot(data = acacia, mapping = aes(x = CIRC, y =  HEIGHT, color = TREATMENT,
+linetype = TREATMENT)) +
+  geom_point() +
+  geom_smooth(method = "loess") +
+  facet_wrap(~TREATMENT)
+```
+
+
+## histograms and barplots
+
+for bar plots we use geom_bar() function:
+
+```{r}
+ggplot(data = acacia, mapping = aes(x = TREATMENT)) +
+  geom_bar()
+```
+
+if we want to see the distribution of a continuous variable like height or circ we use geom_histogram() function
+
+```{r}
+ggplot(data = acacia, mapping = aes(x = HEIGHT, fill = TREATMENT)) +
+  geom_histogram(bins = 15, col = "tomato")
+```
+
+
+## layer multiple data from the same or different data sets
+
+
+```{r}
+ggplot() +
+  geom_point(data = acacia,
+           mapping = aes(x = CIRC, y = HEIGHT,
+                         color = TREATMENT)) +
+  geom_smooth(data = acacia, mapping = aes(x = CIRC, y = HEIGHT)) +
+  geom_histogram(data = acacia,
+                 mapping = aes(x = CIRC, col = TREATMENT), alpha = 0.1)
+  
+```
+
+
+
+
+
+
 
 ### 4.2 visualize a statistical anlaysis of correlation 
 

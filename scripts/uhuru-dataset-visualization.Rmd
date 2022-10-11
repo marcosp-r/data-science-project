@@ -71,7 +71,7 @@ library(ggplot2)
 ```
 
 
-now we are gonna creat oiuur first  plotting layer with ggplot function
+now we are gonna create our first  plotting layer with ggplot function
 
 ```{r}
 ggplot(data = acacia, mapping = aes(x = CIRC, y = HEIGHT)) + 

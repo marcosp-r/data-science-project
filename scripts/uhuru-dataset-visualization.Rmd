@@ -89,7 +89,7 @@ ggplot(data = acacia, mapping = aes(x = CIRC, y =  HEIGHT)) +
   labs(x = "Circumference", y = "Height (m)", title = "Data from Acacia Survey")
 ```
 
-we have the informaiton pon experimental treatmenet in treatmnt column
+we have the information pon experimental treatmenet in treatmnt column
 
 ```{r}
 acacia$TREATMENT
@@ -165,7 +165,7 @@ if we want to see the distribution of a continuous variable like height or circ 
 
 ```{r}
 ggplot(data = acacia, mapping = aes(x = HEIGHT, fill = TREATMENT)) +
-  geom_histogram(bins = 15, col = "tomato")
+  geom_histogram(bins = 15, col = "black")
 ```
 
 
@@ -184,12 +184,101 @@ ggplot() +
 ```
 
 
+# save image files
+
+```{r}
+ggsave(filename = "acacia_by_treatment.pdf", width = 3, height = 3)
+```
+
+
+
+# 1. in class exercises - scatterplots
+
+1.
+```{r}
+ggplot() +
+  geom_point(data = acacia,
+           mapping = aes(x = CIRC, y = AXIS1)) +
+  labs(x = "Circumference", y = "Canopy Diameter", title = "Data from UHURU Acacia Survey")
+```
+
+2.
+```{r}
+ggplot() +
+  geom_point(data = acacia,
+           mapping = aes(x = CIRC, y = AXIS1)) +
+  labs(x = "Circumference", y = "Canopy Diameter", title = "Data from UHURU Acacia Survey") +
+  scale_x_log10() +
+  scale_y_log10()
+```
+
+3.
+```{r}
+ggplot() +
+  geom_point(data = acacia,
+           mapping = aes(x = CIRC, y = AXIS1, col = ANT)) +
+  labs(x = "Circumference", y = "Canopy Diameter", title = "Data from UHURU Acacia Survey")
+```
+
+4.
+```{r}
+ggplot() +
+  geom_point(data = acacia,
+           mapping = aes(x = CIRC, y = AXIS1, col = ANT)) +
+  labs(x = "Circumference", y = "Canopy Diameter", title = "Data from UHURU Acacia Survey") +
+  facet_wrap(~ANT)
+```
+
+5.
+```{r}
+ggplot() +
+  geom_point(data = acacia,
+           mapping = aes(x = CIRC, y = AXIS1, col = ANT)) +
+  geom_smooth(data = acacia, mapping = aes(x = CIRC, y = HEIGHT)) +
+  labs(x = "Circumference", y = "Canopy Diameter", title = "Data from UHURU Acacia Survey") +
+  facet_wrap(~ANT)
+```
+
+
+# in class exercise 2 - histograms
+
+1.
+```{r}
+ggplot(data = acacia, mapping = aes(x = ANT, fill = "black")) +
+  geom_bar()
+```
+
+2. 
+```{r}
+ggplot(data = acacia, mapping = aes(x = HEIGHT)) +
+  geom_histogram(bins = 15, fill = "springgreen4", col = "black") +
+  labs(x = "HEIGHT (m)", y = "Number of Acacia")
+```
+
+3.
+```{r}
+ggplot()+
+  geom_histogram(data = acacia,
+                 mapping = aes(x = AXIS1, fill = "red"), alpha = 0.3) +
+  geom_histogram(data = acacia,
+                 mapping = aes(x = AXIS2, fill = "black"), alpha = 0.3) 
+  
+```
+
+4. 
+```{r}
+ggplot()+
+  geom_histogram(data = acacia,
+                 mapping = aes(x = AXIS1, fill = "red"), alpha = 0.3, bins = 10) +
+  geom_histogram(data = acacia,
+                 mapping = aes(x = AXIS2, fill = "black"), alpha = 0.3, bins = 10) +
+  facet_wrap(~TREATMENT)
+  
+```
 
 
 
 
-
-### 4.2 visualize a statistical anlaysis of correlation 
 
 
 

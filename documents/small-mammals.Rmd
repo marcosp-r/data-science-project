@@ -1,0 +1,159 @@
+---
+title: "small mammals dataset"
+author: "Marcos Padilla-Ruiz"
+date: "2022-10-11"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r}
+library(dplyr)
+```
+
+```{r}
+surveys <- read.csv(file = "../raw_data/surveys.csv")
+plots <- read.csv(file = "../raw_data/plots.csv")
+species <- read.csv(file = "../raw_data/species.csv")
+```
+
+```{r}
+select(surveys, year, species_id, weight)
+surveys_short <- select(surveys, year, species_id, weight)
+head(surveys_short)
+```
+
+
+other ways to subset
+```{r}
+columns2keep <- c("year", "species_id", "weight")
+surveys[,columns2keep]
+```
+
+
+```{r}
+colnames(surveys)
+surveys$weight_decimal <- surveys$weight/10
+```
+
+```{r}
+surveys <- mutate(surveys, weight_decimal_2 = weight/10)
+```
+
+```{r}
+surveys
+```
+
+
+## reorder/rearrange a data table by some value
+
+we will use the function `arange()`
+
+```{r}
+arrange(surveys, weight)
+```
+
+to arrange in a descending order:
+```{r}
+arrange(surveys, desc(weight))
+```
+
+
+```{r}
+surveys_arranged <- arrange(surveys, weight)
+
+tail(surveys_arranged, 100)
+```
+
+
+## filter data
+
+to filter unwanted data or by some specific value in our data we use the function `filter()`
+
+```{r}
+filter(surveys, species_id == "DS")
+filter(surveys, species_id != "DS")
+
+
+```
+
+
+
+we an also filter by multiple conditions
+
+```{r}
+filter(surveys, species_id == "DS", year > 1991)
+filter(surveys, species_id == "DS", year >= 1991)
+#above line is "above or equal"
+```
+
+the logical operator '&' and '|' mean "and" and "or"
+
+```{r}
+temp_table <- filter(surveys, species_id == "DS", year >= 1998)
+tail(temp_table, 100)
+```
+
+```{r}
+filter(surveys, species_id == "DS" & year >= 1998)
+```
+
+
+```{r}
+filter(surveys, species_id == "DS" | year >= 1998)
+
+```
+
+
+lets filter for values that are NA we need the function `is.na()`
+
+
+```{r}
+is.na(surveys$weight)
+surveys$weight
+filter(surveys, !is.na(weight))
+
+```
+
+
+
+
+1.
+```{r}
+surveyss <- read.csv(file = "../raw_data/surveys.csv")
+```
+
+2.
+```{r}
+select(surveyss, year, month, day, species_id)
+
+```
+
+
+3.
+```{r}
+select(surveyss, "year", "species_id", "weight")
+columns <- c("year", "species_id", "weight")
+surveyss[,columns]
+```
+
+
+```{r}
+
+surveyss <- filter(surveys, !is.na(weight))
+surveyss <- mutate(surveyss, weight_kg = weight/1000)
+
+head(surveyss)
+filter(surveyss, species_id == "SH")
+```
+
+
+There are a total of 141 rows after filtering by "SH"
+
+
+
+

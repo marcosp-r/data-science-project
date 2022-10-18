@@ -1,0 +1,120 @@
+---
+title: "shrub_volume.Rmd"
+author: "Marcos Padilla-Ruiz"
+date: "2022-10-18"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r}
+library(dplyr)
+```
+
+
+Exercise 1: data wrangling basics
+## shrub data
+
+The shrub volume dataset consists of a table made up of five columns labeled site, experiment, length, width, and height with a total of 12 rows
+
+
+## read data
+
+```{r}
+shrubs <- read.csv(file = "../raw_data/shrub-volume-data.csv")
+```
+
+
+## selecting data
+
+```{r}
+select(shrubs, length)
+
+select(shrubs, site, experiment)
+```
+
+
+## adding clomun using mutate function
+
+```{r}
+mutate(shrubs, area = length*width)
+```
+
+
+## sort data by length with arrange function
+```{r}
+arrange(shrubs, length)
+```
+
+
+
+## filter data 
+
+```{r}
+filter(shrubs, height > 5)
+# shrubs with height greater than 5
+
+filter (shrubs, height > 4, width > 2)
+# shrubs with height greater than 4 and width greater than 2
+
+filter(shrubs, experiment == "1" | experiment == "3")
+# shrubs from experiment 1 or 3
+
+filter(shrubs, !is.na(height))
+# filter to remove null values from height column
+```
+
+
+
+## new shrub data frame with added column
+
+```{r}
+shrub_volumes <- mutate(shrubs, volumes = length*width*height)
+
+shrub_volumes
+```
+
+
+Exercise 2: data aggregation
+
+## rewrite code as pipeline for maximum plant height
+```{r}
+avg_height <- shrubs |>
+  group_by(site) |>
+  summarize(avg_ht = max(height)) 
+  
+
+avg_height
+```
+
+
+Exercise  3: fix the code
+
+```{r}
+shrubs <- read.csv(file = "../raw_data/shrub-volume-data.csv") # they did not specify the location of the file nor did they assign it to a data frame
+
+
+shrub_data_site <- shrubs |> # 'shrub_data_site' is the name of the new data frame we're creating and 'shrubs' is the data set we are using
+  mutate(volume = length * width * height) |> # this line creates a new column labeled 'volume' and is quantified by three columns in the data multiplied with one another
+  group_by(site) |> # this function allows us to group the rows by the values in the site column
+  summarize(mean_volume = max(volume)) # this summarizes the maximum volumes in each site into one new column
+
+shrub_data_site
+
+
+shrub_data_exp <- shrubs |> # 'shrub_data_exp' is the new data frame and we are once again working with the 'shrubs' data
+  mutate(volume = length * width * height) |> # creates new 'volume' column
+  group_by(experiment) |> # groups rows by the values in the experiment column
+  summarize(mean_volume = mean(volume)) # summarizes the average volumes within each experiment
+
+shrub_data_exp
+```
+
+
+
+
+

@@ -263,5 +263,202 @@ summarize(group_species_year_weight, average_mass = mean(weight))
 
 
 
+how to use funciton filter()
+some examples of relationl statments: they evaluate reltionships between two varibales or objects
+symbols we use are
+== "equals to"
+> "larger than"
+< "smaller than"
+!= "not equal to"
+>= "larger or equal to"
+<= "smaller or equal to"
 
+
+```{r}
+"a" == "a"
+"marcos" < "Marcos"
+```
+
+
+logical statements test if two or more relational sttaements are true or false in combination
+to evaluate a logical comparison we have two symbols. two types of logical comparisons
+- the ampersand &: this evalues thta the relation to the left AND the relation to the right are both TRUE
+- the vertical bar |: evaluates that the relation to the left OR the relation to the right are TRUE; in other words at least on these relations must be true
+
+```{r}
+1 == 1 & 1 < 2
+1 == 1 | 1 < 2
+1 == 1 & 1 < 2
+```
+
+```{r}
+combined <- inner_join(surveys, species, by = "species_id")
+combined_full <- inner_join(combined, plots, by = "plot_id")
+filter(combined_full, plot_type == "Control" & species_id == "PP" & 
+         plot_id == 2 | species_id == "DO" & !is.na(weight)) 
+```
+
+
+```{r}
+surveys$weight %>% 
+  mean(na.rm = TRUE)
+
+```
+
+```{r}
+surveys %>% 
+  filter(!is.na(weight)) %>% 
+  lm(weight ~ year, data = .)
+```
+
+
+
+
+
+something importnant for relational statements is the NA
+```{r}
+NA == 3
+
+is.na(NA)
+is.na("marcos")
+
+mean(surveys$weight, na.rm = TRUE)
+min(surveys$weight, na.rm = TRUE)
+max(surveys$weight, na.rm = TRUE)
+```
+
+
+
+
+## joining data tables
+
+join data by 
+
+```{r}
+inner_join(surveys, species, by = "species_id")
+left_join(surveys, species, by = "species_id")
+right_join(surveys, species, by = "species_id")
+full_join(surveys, species, by = "species_id")
+```
+
+
+how to find out if we have matching columns in two tables
+```{r}
+surveys_colnames <- colnames(surveys)
+species_colnames <- colnames(species)
+surveys_colnames[7]
+to_keep <- c(1, 4, 3, 2)
+to_keep <- c(FALSE, TRUE, TRUE, FALSE)
+species_colnames[to_keep]
+```
+
+
+the %in% operator
+
+```{r}
+1 %in% c(1, 2, 3)
+c(1, 2, 3) %in% 1
+
+matching_colnames <- colnames(species) %in% colnames(surveys)
+matching_colnames
+colnames(species)[matching_colnames]
+```
+
+
+how to join more than two tables
+```{r}
+combined <- inner_join(surveys, species, by = "species_id")
+combined_full <- inner_join(combined, plots, by = "plot_id")
+head(combined)
+head(combined_full)
+```
+
+how do we run the code using a pipe
+```{r}
+combined_full <- inner_join(surveys, species, by = "species_id") %>%
+  inner_join(plots, by = "plot_id")
+head(combined_full)
+```
+
+
+joint-exercise:
+
+```{r}
+surveys |>
+  inner_join(plots, by = "plot_id") |>
+  filter(plot_type == "Control")
+  
+```
+
+exercise 2:
+```{r}
+colnames(surveys)
+combined_full <- inner_join(surveys, species, by = "species_id") |>
+  inner_join(plots, by = "plot_id")
+colnames(combined_full)
+combined_full %>% 
+  select(year, genus, species, weight, plot_type, taxa) |>
+  filter(plot_type == "Control" | plot_type == "Long-term Krat Exclosure") %>% 
+  filter(taxa == "Rodent") %>% 
+  select(year, genus, species, weight, plot_type) %>% 
+  filter(!is.na(weight))
+
+```
+
+```{r}
+#1
+combined_full %>% 
+  filter(species_id == "DO") %>% 
+  select(year, month, day, species_id, weight) -> data1
+
+#2
+combined_full %>% 
+  filter(species_id == "PP" | species_id == "PB") %>% 
+  filter(year >= 1995) %>% 
+  filter(!is.na(hindfoot_length)) %>% 
+  select(year, species_id, hindfoot_length) -> data2
+
+#3
+combined_full %>% 
+  group_by(species_id, year) %>% 
+  filter(!is.na(hindfoot_length)) %>% 
+  summarize(avg_hindfoot_length = mean(hindfoot_length, na.rm = TRUE)) 
+  
+#4
+combined_full %>% 
+  select(year, genus, species, weight) %>% 
+  filter(genus, plot_type == "Dipodomys")
+
+#5
+library(ggplot2)
+ggplot(combined_full, mapping = aes (x = weight, y = hindfoot_length,
+                                     color = species_id)) +
+  labs(x = "Weight", y = "Hindfoot Length", title = "Species by Weight & Hindfoot Length") +
+  geom_point(size = 1, alpha = 0.2) +
+  scale_x_log10()
+
+#6
+ggplot(data = combined_full, mapping = aes(x = weight, fill = species_id)) +
+  geom_histogram(bins = 9, col = "black") +
+  labs(x = "Weight", y = "Number of Individuals", title = "Species ID Histogram") +
+   facet_wrap(~species_id, scales = "free_y")
+
+#7
+ggplot() +
+  geom_histogram(data = combined_full, 
+                 mapping = aes(x = weight, y = "PP", col = species_id)) 
+```
+
+
+```{r}
+library(magrittr)
+library(dplyr)
+surveys %>% 
+  filter(species_id == "DM" | species_id == "DO" | species_id == "DS") %>% 
+  select(month, day, year, species_id, weight, hindfoot_length) %>%
+  filter(!is.na(weight) & !is.na(hindfoot_length)) %>% 
+  mutate(species_id = tolower(species_id))
+
+
+```
 

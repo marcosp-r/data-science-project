@@ -1,0 +1,134 @@
+---
+title: "portal-phylogenies.Rmd"
+author: "Marcos Padilla-Ruiz"
+date: "2022-10-25"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# add intro to ape
+
+```{r, eval=FALSE}
+install.packages("ape")
+```
+
+
+```{r}
+library(ape)
+portal_tree <- read.tree(file = "../raw_data/portal-tree.tre")
+portal_tree
+```
+
+read tre from url
+
+```{r}
+small_tree <- read.tree(file = "http://ape-package.ird.fr/APER/APER2/primfive.tre")
+small_tree
+```
+
+
+# the structure of a tree in R
+
+```{r}
+class(portal_tree)
+length(portal_tree)
+colnames(portal_tree)
+names(portal_tree)
+portal_tree$Nnode
+portal_tree["tip.label"]
+head(portal_tree[[3]])
+summary(portal_tree)
+str(portal_tree)
+class(portal_tree$edge)
+portal_tree$edge
+```
+
+
+## plotting phylogenetic trees
+
+```{r}
+plot.phylo(x = portal_tree)
+```
+
+an extension of phylogenetic visualization: ggtree
+to install packages from bioconductor we need a CRAN package called biocmanager
+
+```{r, eval=FALSE}
+install.packages("BiocManager")
+install("ggtree")
+```
+
+
+```{r}
+library(BiocManager)
+library(ggtree)
+ggtree(portal_tree)
+```
+# this is equivalent to:
+
+```{r}
+ggplot(portal_tree, aes(x, y)) +
+  geom_tree() +
+  theme_tree()
+```
+
+
+add a scale with the function geom_treescale()
+```{r}
+ggtree(portal_tree) +
+  geom_treescale()
+```
+
+
+exercise: plot the small tree of five species of primates and include a scale
+what is the difference in structure between the two trees?
+
+```{r}
+ggtree(small_tree) +
+  geom_treescale()
+```
+- A difference in number of tips (43 vs 5)
+- our small_tree does not have node.label as opposed to the portal trees but it does include branch lengths through the edge.length element as shown by the tree above
+
+
+```{r}
+names(small_tree)
+summary(small_tree)
+str(small_tree)
+class(small_tree$edge.length)
+small_tree$edge.length
+```
+
+
+# add tip labels and node labels
+
+Because a plot is nothing without labels
+```{r}
+ggtree(portal_tree) +
+  geom_treescale() +
+  geom_tiplab(size = 1, col = "cyan", fontface = "italic")
+```
+
+add a limit to the plot so we can see the labels
+
+```{r}
+ggtree(portal_tree) +
+  geom_treescale() +
+  geom_tiplab(size = 3, col = "springgreen", fontface = "italic") +
+  xlim(NA, 90)
+```
+
+```{r}
+#age of each node
+branching.times(small_tree)
+```
+
+
+# homework: make a plot for small_tree with scale, tip labels, and an appropriate, and an approprate xlim size to display names fully
+
+

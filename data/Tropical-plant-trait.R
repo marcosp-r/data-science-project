@@ -44,7 +44,16 @@ summary(data_table$fruit_width)
 
 # subset of first ten rows and write.csv function to convert to csv file
 firstactivity <- data_table[1:10, ]
-write.csv(firstactivity)
+getwd()
+
+#relative
+write.csv(firstactivity, file = "first_subset.csv")
+
+#absolute
+write.csv(firstactivity, file = "~/Desktop/first_subset.csv")
+write.csv(firstactivity, file = "~/Users/marcos/Desktop/BIO 197/Data_Science_Project/1_subset.csv")
+write.csv(firstactivity, file = "~/marcos/first_subset.csv")
+getwd()
 
 # subset of last twenty rows and write.csv function to convert to csv file
 secondactivity <- data_table[137:157, ]

@@ -405,7 +405,7 @@ combined_full %>%
 
 ```
 
-```{r}
+```{r, eval = FALSE}
 #1
 combined_full %>% 
   filter(species_id == "DO") %>% 
@@ -461,4 +461,11 @@ surveys %>%
 
 
 ```
+
+
+
+
+```{r, child = 'vectors_and_data_frames.Rmd'}
+```
+
 

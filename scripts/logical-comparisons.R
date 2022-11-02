@@ -45,3 +45,5 @@ all_families <- data_table[, 3]
 family_lauraceae <- (data_table[all_families == "Lauraceae", ])
 nrow(family_lauraceae)
 # output: 17
+
+getwd()

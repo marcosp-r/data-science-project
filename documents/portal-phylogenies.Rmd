@@ -253,10 +253,10 @@ head(taxonomy)
 write.csv(taxonomy, file = "../raw_data/taxonomy-test.csv", row.names = FALSE)
 ```
 
-### join taxonom,y data with portal tree
+### join taxonomy data with portal tree
 
 ```{r}
-install.packages("tidytree")
+# install.packages("tidytree")
 library(tidytree)
 ```
 
@@ -269,7 +269,7 @@ ggsave(filename = "../fig/portal-tree-1.png")
 ```
 
 
-###  troubleshooting treee and data joins:
+###  troubleshooting tree and data joins:
 
 ```{r}
 portal_tree$tip.label
@@ -285,16 +285,26 @@ match(portal_tree$tip.label, taxonomy$label)
 ```{r}
 small_tree <- read.tree(file = "http://ape-package.ird.fr/APER/APER2/primfive.tre")
 ggtree(small_tree) +
-  geom_tiplab() +
-  xlim(0,1.5) +
-  geom_tiplab(fontface = "italic")
+  geom_tiplab(size = 2, fontface = "italic") +
+  xlim(0,1.5) 
 
-label <- small_tree$tip.label[1:2]
-taxa <- c("Hominini", "Hominidae")
-common_name <- c("Human", "Orangutan")
+label <- small_tree$tip.label
+small_tree$tip.label
+
+taxa <- c("Hominini", "Hominidae", "Catarrhini", "Simiiformes", "Haplorhini")
+common_name <- c("Human", "Orangutan", "Old World Monkeys", "New World Monkeys", "Tarsiers")
 
 taxon_human_orang <- data.frame(label, taxa, common_name)
 
+taxon_human_orang
+
+```
+
+
+```{r}
+ggtree(tr = small_tree) +
+  xlim(0,1.5) +
+  geom_tiplab(size = 1, fontface = "italic")
 ```
 
 
@@ -341,7 +351,7 @@ renamed_inode_data$label
 ```
 
 
-using colnamed fucntion
+using colnames fucntion
 
 ```{r}
 colnames(df_tip_data)[1] <- "label"
@@ -402,6 +412,31 @@ ggtree(tree_join) +
   geom_tippoint(mapping = aes(shape = "circle", 
                               size = mean_weight, col = taxa))
 ```
+
+
+
+```{r}
+surveys %>% 
+  filter(!is.na(hindfoot_length)) %>% 
+  group_by(species_id) %>% 
+  summarize(mean_hindft = mean(hindfoot_length)) -> species_hindft_lgth
+
+spp_hindft <- inner_join(species, species_hindft_lgth)
+
+taxonomy_hndft <- full_join(taxonomy, spp_hindft)
+
+join_tree <- left_join(portal_tree, taxonomy_hndft,
+                       by = "label")
+
+ggtree(join_tree) +
+  geom_tiplab(fontface = "italic", size = 2) +
+  xlim(0, 15) +
+  geom_tippoint(mapping = aes(shape = "circle", 
+                              size = mean_hindft, col = taxa))
+```
+
+
+
 
 
 

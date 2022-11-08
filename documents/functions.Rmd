@@ -1,0 +1,119 @@
+---
+title: "Creating functions"
+author: "Marcos Padilla-Ruiz"
+date: "2022-11-08"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction to creating functions
+
+three reasons why creating your own functions is good practice for data science.
+
+- it allows reusing code for other parts of a project or a future project
+- less error prone than copy pasting code
+- code is more organized for you and others so it is easier to read
+- allows deeper understanding of what your code is
+- useful to add data to data frames
+- allows getting specific values and requirements
+- invites you to be intentional on the code that you are writing
+- allows to be more in control of the outputs
+
+## Exercise 1
+part 1
+```{r}
+convert_pounds_to_grams <- function(pounds) {
+    grams = 453.6 * pounds
+    return(grams)
+}
+
+```
+
+part 2
+```{r}
+convert_pounds_to_grams <- function(pounds = 3.75) {
+    grams = 453.6 * pounds
+    return(grams)
+}
+
+convert_pounds_to_grams() # this requires a default value in function
+convert_pounds_to_grams(3.75)
+convert_pounds_to_grams(pounds = 3.75)
+```
+
+
+## Exercise 2
+
+part 1
+```{r}
+get_mass_from_length_theropoda <- function(length){
+  mass <- 0.73 * length ^ 3.63
+  return(mass)
+}
+
+get_mass_from_length_theropoda(16)
+```
+
+part 2
+```{r}
+#1 method
+get_mass_from_length <- function(length = 26){
+  mass <- 214.44 * length ^ 1.46
+  return(mass)
+}
+
+get_mass_from_length()
+
+#2 method
+get_mass_from_length <- function(length, a, b){
+  mass <- a * length ^ b
+  return(mass)
+}
+
+get_mass_from_length(length = 26, a = 214.44, b = 1.46)
+```
+
+
+## Exercise 3
+
+```{r}
+get_mass_from_length <- function(length, a = 39.9, b = 2.6){
+  mass <- a * length ^b
+  return(mass)
+}
+
+get_mass_from_length(length = 22, a = 214.44, b = 1.46)
+get_mass_from_length(length = 16, a = 39.9, b = 2.6)
+```
+
+## Exercise 4
+```{r}
+convert_kg_to_pounds <- function(kg) {
+  pounds <- 2.205 * kg
+}
+
+```
+
+
+```{r}
+library(magrittr)
+weight_in_pounds <- get_mass_from_length(12, 10.95, 2.64) %>% 
+convert_kg_to_pounds()
+weight_in_pounds
+```
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,71 @@
+---
+title: "Creating functions in R"
+author: "Marcos Padilla-Ruiz"
+date: "2022-11-10"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. load data
+```{r}
+library(dplyr)
+plots <- read.csv(file = "../raw_data/plots.csv")
+species <- read.csv(file = "../raw_data/species.csv")
+surveys <- read.csv(file = "../raw_data/surveys.csv")
+```
+
+2. combine the survey and species data
+```{r}
+combined <- inner_join(surveys, species)
+head(combined)
+```
+
+
+3. write a function
+```{r}
+combined1 <- function(combined, genus_name = "Neotoma", species_name = "albigula") {
+  combined %>% 
+    select(year, genus, species) %>% 
+  filter(genus == genus_name, species == species_name) %>% 
+    group_by(year) %>% 
+    summarize(count_by_year = n()) -> data_frame_result
+  
+  return(data_frame_result)
+}
+
+```
+
+
+
+```{r}
+combined1(combined)
+plot1 <- combined1(combined, genus_name = "Dipodomys", species_name = "merriami")
+plot2 <- combined1(combined, genus_name = "Chaetodipus", species_name = "penicillatus")
+```
+
+```{r}
+plot1
+library(ggplot2)
+ggplot() +
+  geom_point(data = plot1,
+           mapping = aes(x = year, y = count_by_year)) +
+  labs(title = "Time Series: Dipodomys merriami", x = "Year", y = "Number of individuals")
+ 
+```
+
+```{r}
+library(ggplot2)
+ggplot() +
+  geom_point(data = plot2,
+           mapping = aes(x = year, y = count_by_year, col = "blue"), size = 1) +
+  geom_smooth(data = plot2,
+           mapping = aes(x = year, y = count_by_year, col = "blue"), size = 2) +
+             labs(title = "Time Series: Dipodomys merriami", x = "Year", y = "Number of individuals") 
+ 
+```
+
+
+

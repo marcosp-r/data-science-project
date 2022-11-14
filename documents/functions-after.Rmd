@@ -60,11 +60,13 @@ ggplot() +
 library(ggplot2)
 ggplot() +
   geom_point(data = plot2,
-           mapping = aes(x = year, y = count_by_year, col = "blue"), size = 1) +
+           mapping = aes(x = year, y = count_by_year, color = "blue"), size = 1) +
   geom_smooth(data = plot2,
-           mapping = aes(x = year, y = count_by_year, col = "blue"), size = 2) +
-             labs(title = "Time Series: Dipodomys merriami", x = "Year", y = "Number of individuals") 
+           mapping = aes(x = year, y = count_by_year, color = "blue"), size = 2) +
+             labs(title = "Time Series: Chaetodipus penicillatus", x = "Year", y = "Number of individuals") 
  
+
+# not sure why the dots and lines are not blue
 ```
 
 

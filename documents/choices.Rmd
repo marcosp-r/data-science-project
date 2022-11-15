@@ -1,0 +1,238 @@
+---
+title: "Making Choices"
+author: "Marcos Padilla-Ruiz"
+date: "2022-11-10"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Logical and conditional statements
+
+
+```{r}
+1 == 1
+1 > 1
+1 < 1
+1 >= 1
+1 <= 1
+
+"a" == "a"
+"a" < "a"
+"a" < "b"
+"b" < "c"
+"apple" < "banana"
+"apple" < "airplane"
+
+c(1, 2, 3, 4, 1, 1) == 1
+
+letters
+letters < "m"
+letters[letters < "m"]
+LETTERS
+
+```
+
+load data from uhuru data set
+
+```{r}
+plots <- read.csv(file = "../raw_data/plots.csv")
+species <- read.csv(file = "../raw_data/species.csv")
+surveys <- read.csv(file = "../raw_data/surveys.csv")
+
+colnames(surveys)
+```
+
+```{r}
+library(dplyr)
+combined <- dplyr::inner_join(surveys, species, by = "species_id")
+
+colnames(combined)
+```
+
+extract the year column:
+```{r}
+colnames(combined)
+str(combined)
+dim(combined)
+combined$year
+combined[,4]
+combined[,"year"]
+
+combined$year == 1977
+combined$genus == "Dipodomys"
+data.frame(combined$genus, combined$genus == "Dipodomys")
+data.frame(combined$species, combined$species == "merriami")
+
+```
+
+some examples of conditional statements (logical statement AND logical statement we use `&`, OR `|`)
+```{r}
+1 ==1 & 1 < 2
+1 == 1 & 1 == 2
+1 == 1 | 1 == 2
+```
+
+```{r}
+combined$year == 1977 & combined$genus == "Dipodomys" & combined$species == "merriami"
+
+age_class = "sapling"
+ if (age_class == "sapling"){
+y = 10
+ }
+ y
+ 
+ age_class = "seedling"
+ if (age_class == "sapling"){
+y = 10
+ } else {
+   y = 5
+ }
+ y
+
+ 
+ age_class = "adult"
+ if (age_class == "sapling"){
+   y <- 10
+ } else if (age_class == "seedling") {
+   y <- 5
+ } else {
+   y <- 0
+ }
+ y
+```
+
+## using if else inside functions
+
+1. convert your conditionals statments from last exercise into a function called get y that takes age_class as argument and returns y
+
+```{r}
+get_y = function(age_class) {
+  if (age_class == "sapling") {
+   y <- 10 
+ } else if (age_class == "seedling") {
+   y <-  5 
+   } else { 
+     y <-  0 
+   }
+  return(y)
+}
+```
+
+2. run the function using the values "sapling", "seedling", "adult", "mature", "established"
+```{r}
+get_y("sapling") # 10
+get_y("seedling") # 5
+get_y("adult") # 0
+get_y ("mature") # 0
+get_y("established") # 0
+```
+
+## Choice operators
+
+1. Create the following variables:
+```{r}
+ w <- 10.2
+ x <- 1.3
+ y <- 2.8
+ z <- 17.5
+ colors <- c("red", "blue", "green")
+ masses <- c(45.2, 36.1, 27.8, 81.6, 42.4)
+ dna1 <- "attattaggaccaca"
+ dna2 <- "attattaggaacaca"
+```
+ 
+2. Use them to print whether or not the following statements are TRUE or FALSE.
+```{r}
+ w > 10 # a) TRUE
+ colors == "green" # b) FALSE FALSE TRUE
+ x > y # c) FALSE
+ masses > 40 # d) TRUE FALSE FALSE TRUE TRUE
+ (2*x+0.2) == y # e) FALSE
+ dna1 == dna2 # f) FALSE
+ dna1 != dna2 # g) TRUE
+ w > x | y > z # h) TRUE
+x*w < 13.5 & x*w > 13.2 # i) TRUE
+masses < 50 & masses > 30 # j) TRUE TRUE FALSE FALSE TRUE
+```
+
+
+```{r}
+get_mass_from_length = function(length, a, b) {
+  mass <- a * length^b
+}
+```  
+
+
+## Mass estimates
+
+1. Create a new function get_mass_from_length_by_name() that:
+takes two arguments, the length and the name of the dinosaur group
+```{r}
+get_mass_from_length_by_name = function(length, name) {
+   if (name == "Stegosauria") {
+     a <- 10.95 
+     b <- 2.64 
+   } else if (name == "Theropoda") {
+     a <- 0.73
+     b <- 3.63
+   } else if (name == "Sauropoda") {
+     a <- 214.44
+     b <- 1.46
+   } else { 
+   message("No known estimation for ", name)
+   return(NA)
+   }
+ mass <- get_mass_from_length(length = length, a = a, b = b )
+ return(mass)
+}  
+```
+
+2 & 3. Run the function for:
+a) A Stegosauria that is 10 meters long.
+b) A Theropoda that is 8 meters long.
+c) A Sauropoda that is 12 meters long.
+d) A Ankylosauria that is 13 meters long.
+```{r}
+get_mass_from_length_by_name(10, "Stegosauria") # 4779.848
+get_mass_from_length_by_name(8, "Theropoda") # 1385.286
+get_mass_from_length_by_name(12, "Stegosauria") # 7734.863
+
+# challenge 3:
+get_mass_from_length_by_name(13, "Ankylosauria") # No known estimation for Ankylosauria
+```
+
+4. Change your function so that it uses two different values of a and b for Stegosauria:
+a) When Stegosauria is greater than 8 meters long use the equation above.
+b) When it is less than 8 meters long use a = 8.5 and b = 2.8.
+c) Run the function for a Stegosauria that is 6 meters long.
+```{r} 
+get_mass_from_length_by_name = function(length, name) {
+   if (name == "Stegosauria" & length > 8) {
+     a <- 10.95 
+     b <- 2.64 
+    } else if (name == "Stegosauria" & length < 8) {
+     a <- 8.5
+     b <- 2.8
+   } else if (name == "Theropoda") {
+     a <- 0.73
+     b <- 3.63
+   } else if (name == "Sauropoda") {
+     a <- 214.44
+     b <- 1.46
+   } else { 
+   message("No known estimation for ", name)
+   return(NA)
+   }
+ mass<- get_mass_from_length(length = length, a = a, b = b )
+ return(mass)
+}  
+get_mass_from_length_by_name(6, "Stegosauria") # 1283.047
+```
+
+
+
+
+

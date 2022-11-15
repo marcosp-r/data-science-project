@@ -1,5 +1,5 @@
 ---
-title: "functions-prep.Rmd"
+title: "functions-prep"
 author: "Marcos Padilla-Ruiz"
 date: "2022-11-08"
 output: pdf_document

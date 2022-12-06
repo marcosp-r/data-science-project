@@ -1,0 +1,64 @@
+---
+title: "review"
+author: "Marcos Padilla-Ruiz"
+date: "2022-11-29"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(stringr)
+survey.list <- list.files("/Users/marcos/Desktop/BIO 197/Data_Science_Project/raw_data") == "surveys.csv"
+
+str_detect(list.files("/Users/marcos/Desktop/BIO 197/Data_Science_Project/raw_data"), "surveys.csv")
+
+is.element("surveys.csv", list.files("/Users/marcos/Desktop/BIO 197/Data_Science_Project/raw_data"))
+
+survey.file <- download.file("https://ndownloader.figshare.com/files/2292172", "/Users/marcos/Desktop/BIO 197/Data_Science_Project")
+
+```
+
+```{r}
+
+survey.list <- list.files("../raw_data")
+
+any(c(FALSE, FALSE, FALSE))
+any(c(FALSE, TRUE))
+
+if (is.element("surveys.csv", survey.list)) {
+  print("The file surveys.csv is already downloaded")
+} else if (!is.element("surveys.csv", survey.list)) {
+  print("The file is not downloaded!")
+  download.file("https://ndownloader.figshare.com/files/2292172", "../raw_data/survey-download.csv")
+  surveys-table <- read.csv("../raw_data/survey-download.csv")
+  head(surveys-table)
+}
+
+```
+
+
+
+```{r}
+  species.file <- function(file_name, file.link) {
+    if (test == FALSE) {
+      download.file(url = file.link, destfile = "../raw_data/temporary.csv")
+      result <- read.csv(file = "../raw_data/temporary.csv")
+    }
+  return(result)
+  }
+```
+
+
+
+
+
+
+
+
+
+
+
+

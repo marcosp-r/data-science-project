@@ -1,0 +1,30 @@
+---
+title: "DNA or RNA iteration"
+author: "Marcos Padilla-Ruiz"
+date: "2022-12-08"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+sequences = c("ttgaatgccttacaactgatcattacacaggcggcatgaagcaaaaatatactgtgaaccaatgcaggcg", "gauuauuccccacaaagggagugggauuaggagcugcaucauuuacaagagcagaauguuucaaaugcau", "gaaagcaagaaaaggcaggcgaggaagggaagaagggggggaaacc", "guuuccuacaguauuugaugagaaugagaguuuacuccuggaagauaauauuagaauguuuacaacugcaccugaucagguggauaaggaagaugaagacu", "gauaaggaagaugaagacuuucaggaaucuaauaaaaugcacuccaugaauggauucauguaugggaaucagccggguc")
+dna <- "t"
+rna <- "u"
+dna_or_rna <- vector(mode = "numeric", length = length(sequences))
+for (i in 1:length(sequences)) {
+
+}
+  
+# stuck, not sure what to do next
+```
+
+
+
+
+
+
+

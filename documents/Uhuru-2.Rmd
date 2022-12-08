@@ -1,0 +1,43 @@
+---
+title: "Uhuru-function"
+author: "Marcos Padilla-Ruiz"
+date: "2022-12-08"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+uhuru_data <- read.csv("https://esapubs.org/archive/ecol/E095/064/ACACIA_DREPANOLOBIUM_SURVEY.txt", sep = '\t')
+```
+
+```{r, eval = FALSE}
+# function takes three arguments: data, species, and formula
+report_rsquared <- function(data, species, formula){
+# the filter function from the dplyr package subsets the rows that you want
+  subset <- dplyr::filter(data, ANT == species)
+# the lm function creates a linear model of the subset dataframe
+  test <- lm(formula, data = subset)
+# round allows for numbers in the dataset to be rounded up by 3 decimals
+  rsquared <- round(summary(test)$r.squared, 3)
+# this creates data frames 
+  output <- data.frame(species = species, r2 = rsquared)
+  return(output)
+}
+report_rsquared(data = "uhuru_data", species = "CM", formula = "AXIS1~CIRC")
+
+# Error in UseMethod("filter") : 
+# no applicable method for 'filter' applied to an object of class "character
+```
+
+
+
+
+
+
+
+
+

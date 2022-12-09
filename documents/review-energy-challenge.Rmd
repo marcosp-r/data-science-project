@@ -1,0 +1,66 @@
+---
+title: "energy conversion"
+author: "Marcos Padilla-Ruiz"
+date: "2022-12-08"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+
+convert_energy_units <- function(energy_value, input_unit, output_unit) {
+  if (input_unit == "J" & output_unit == "KJ") {
+    energy_value/1000
+  } else if (input_unit == "J" & output_unit == "CAL") {
+     1/4.1868*energy_value
+  } else if (input_unit == "J" & output_unit == "KCAL") {
+    1/4186.8*energy_value
+  } else if (input_unit == "CAL" & output_unit == "J") {
+    energy_value*4.1868
+  } else if (input_unit == "KCAL" & output_unit == "J") {
+    energy_value*4186.8
+  } else {
+    message("Sorry, I don’t know how to convert ", input_unit, " to ", output_unit)
+  }
+}
+
+
+energy_in_cal <- 200
+
+energy_in_j <- convert_energy_units(energy_in_cal, "CAL", "J")
+energy_in_j
+# 837.36
+```
+
+
+```{r}
+daily_energy <- 2500
+daily_energy_in_j <- convert_energy_units(daily_energy, "KCAL", "J")
+daily_energy_in_j
+# 10467000
+```
+
+
+```{r}
+daily_energy_in_kj <- convert_energy_units(daily_energy_in_j, "J", "KJ")
+daily_energy_in_kj
+#10467
+```
+
+
+```{r}
+seal_daily_energy_kj <- 52500
+seal_daily_energy_kj/daily_energy_in_kj
+# 5.015764
+```
+
+
+```{r}
+convert_energy_units(1, "KJ", "ERG")
+```
+
+
